@@ -1,18 +1,34 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+    <!-- <HelloWorld msg="Welcome to v-kansai"/> -->
+    <br />
+    <div>
+      count[0] = {{ state.counts[0] }}<br />
+      <button type="button" @click="state.counts[0]++">+</button>
+    </div>
+    <div>
+      count[1] = {{ state.counts[1] }}<br />
+      <button type="button" @click="state.counts[1]++">+</button>
+    </div>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from '@@vue@@';
+import { defineComponent, reactive, computed } from '@@vue@@';
 import HelloWorld from './components/HelloWorld.vue';
 
 export default defineComponent({
   name: 'App',
   components: {
     HelloWorld
+  },
+  data() {
+    return {
+      state: {
+        counts: [0, 0]
+      }
+    }
   }
 });
 </script>
